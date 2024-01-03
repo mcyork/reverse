@@ -2,6 +2,7 @@ import pyperclip
 import re
 import socket
 import keyboard
+import time
 
 def extract_ips(text):
     # Regular expression to extract IP addresses
