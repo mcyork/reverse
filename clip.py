@@ -24,11 +24,13 @@ def process_clipboard():
 def main():
     print("Press CTRL-Q to process the clipboard. Press CTRL-C to exit.")
     while True:
-        if keyboard.is_pressed('ctrl+q'):
-            process_clipboard()
-            print("\nPress CTRL-Q to process again. Press CTRL-C to exit.")
-        # Sleep to prevent high CPU usage
-        keyboard.sleep(1)
+        try:
+            if keyboard.is_pressed('ctrl+q'):
+                process_clipboard()
+                print("\nPress CTRL-Q to process again. Press CTRL-C to exit.")
+            time.sleep(1)  # Sleep to prevent high CPU usage
+        except KeyboardInterrupt:
+            break
 
 if __name__ == "__main__":
     main()
